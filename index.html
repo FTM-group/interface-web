@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FTM - Dashboard</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h3>Dashboard</h3>
+        </div>
+
+        <div class="row button-div">
+            <div class="col">
+                <button type="button" class="btn btn-success btn-lg btn-block">Ajouter</button>
+            </div>
+        </div>
+
+        <div class="">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="listGame-tab" data-toggle="tab" href="#listGame" role="tab"
+                        aria-controls="listGame" aria-selected="true">listGame
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="proposition-tab" data-toggle="tab" href="#proposition" role="tab"
+                        aria-controls="proposition" aria-selected="false">proposition
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" id="addGame-tab" data-toggle="tab" href="#addGame" role="tab" aria-controls="addGame"
+                        aria-selected="false">addGame</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" id="ipList-tab" data-toggle="tab" href="#ipList" role="tab" aria-controls="ipList"
+                        aria-selected="false">ipList
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <!-- Liste des jeux -->
+                <div class="tab-pane fade show active" id="listGame" role="tabpanel" aria-labelledby="listGame-tab">
+                    <table class="table table-sm">
+                        <thead class="blue">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom jeu</th>
+                                <th scope="col">Nom image</th>
+                                <th scope="col">Poids</th>
+                                <th scope="col">A la une</th>
+                                <th scope="col">Date ajout</th>
+                                <th scope="col">Date modif</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Ligue of Legend</td>
+                                <td>LoL-img1.jpg</td>
+                                <td>250ko</td>
+                                <td>........</td>
+                                <td>26/11/2018</td>
+                                <td>29/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Ligue of Legend</td>
+                                <td>LoL-img1.jpg</td>
+                                <td>250ko</td>
+                                <td>........</td>
+                                <td>26/11/2018</td>
+                                <td>29/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Ligue of Legend</td>
+                                <td>LoL-img1.jpg</td>
+                                <td>250ko</td>
+                                <td>........</td>
+                                <td>26/11/2018</td>
+                                <td>29/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Ligue of Legend</td>
+                                <td>LoL-img1.jpg</td>
+                                <td>250ko</td>
+                                <td>........</td>
+                                <td>26/11/2018</td>
+                                <td>29/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Ligue of Legend</td>
+                                <td>LoL-img1.jpg</td>
+                                <td>250ko</td>
+                                <td>........</td>
+                                <td>26/11/2018</td>
+                                <td>29/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Ligue of Legend</td>
+                                <td>LoL-img1.jpg</td>
+                                <td>250ko</td>
+                                <td>........</td>
+                                <td>26/11/2018</td>
+                                <td>29/11/2018</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Proposition de jeux -->
+                <div class="tab-pane fade" id="proposition" role="tabpanel" aria-labelledby="proposition-tab">
+                    <table class="table table-sm">
+                        <thead class="red">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom du jeu</th>
+                                <th scope="col">Date ajout</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Ligue of Legend</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Ligue of Legend</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Ligue of Legend</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Ligue of Legend</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Ligue of Legend</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Ligue of Legend</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Jeux  -->
+                <!-- <div class="tab-pane fade" id="addGame" role="tabpanel" aria-labelledby="addGame-tab">
+                    addGame
+                </div> -->
+
+                <!-- Liste de IPs -->
+                <div class="tab-pane fade" id="ipList" role="tabpanel" aria-labelledby="ipList-tab">
+                    <table class="table table-sm">
+                        <thead class="orange">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">IP</th>
+                                <th scope="col">Pseudo</th>
+                                <th scope="col">Derniere connexion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>99.152.147.89</td>
+                                <td>thomas44</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>99.152.147.89</td>
+                                <td>thomas44</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>99.152.147.89</td>
+                                <td>thomas44</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>99.152.147.89</td>
+                                <td>thomas44</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>99.152.147.89</td>
+                                <td>thomas44</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>99.152.147.89</td>
+                                <td>thomas44</td>
+                                <td>26/11/2018</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulaire d'ajout d'image - temporaire -->
+        <div class="formulaire-box">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <form action="../../FindTeamMates/API/games.php" method="post">
+                        <div class="form-group ">
+                            <label class="control-label pink" for="nameGame">
+                                Nom du jeu
+                            </label>
+                            <input class="form-control" id="nameGame" name="nameGame" type="text" />
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label pink" for="file">
+                                File
+                            </label>
+                            <input class="form-control-file" id="file" name="file" type="file">
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <button class="btn btn-primary " name="submit" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="action.js"></script>
+</body>
+
+</html>
