@@ -70,21 +70,13 @@ h4.modal-title {
     color: grey;
 }
 #file {
-    /* display: none; */
+    display: none;
     border: 1px solid red;
     overflow: hidden;
     white-space: nowrap;
     overflow-wrap: break-word;
     /* text-overflow: ellipsis; */
     padding-bottom: 5em;
-}
-.label-file {
-    cursor: pointer;
-    color: #00b1ca;
-    font-weight: bold;
-}
-.label-file:hover {
-    color: #25a5c4;
 }
 .box {
     display: flex;

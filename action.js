@@ -32,7 +32,14 @@ $(function () {
     });
 
     // Affiche l'image avant l'upload
-    $(window).on('load', function (e) {
+    $('.modal').on('shown.bs.modal', function () {
+        $('#file').change(function () {
+            console.log("DEBUG");
+            var fileList = $("input[type=file]").prop("files");
+            console.log(fileList);
+            console.log('1Nom de l\'image:' + fileList[0].name);
+        });
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -46,9 +53,31 @@ $(function () {
         }
 
         $('#file').change(function () {
+            var fileList = $("input[type=file]").prop("files");
             readURL(this);
+            $('#image-name').text(fileList[0].name);
         });
+        
     });
+
+    // Affiche l'image avant l'upload
+    // $(window).on('load', function (e) {
+    //     function readURL(input) {
+    //         if (input.files && input.files[0]) {
+    //             var reader = new FileReader();
+
+    //             reader.onload = function (e) {
+    //                 $('#image-view').attr('src', e.target.result);
+    //             }
+
+    //             reader.readAsDataURL(input.files[0]);
+    //         }
+    //     }
+
+    //     $('#file').change(function () {
+    //         readURL(this);
+    //     });
+    // });
 
     // Efface le contenu du formulaire
     $('#empty-btn').on('click', function (e) {
@@ -58,14 +87,8 @@ $(function () {
     });
 
 
-
-
-
+    
 
     // GO
     // tabAction();
 });
-
-// function preview(filename){
-//     $('#image-view').innerHTML='<img src="file://'+filename+'" width="200px" height="auto"/>';
-// }

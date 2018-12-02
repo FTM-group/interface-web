@@ -274,7 +274,8 @@
                         <div class="box">
                             <!-- FORM -->
                             <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
-                                <form action="../../FindTeamMates/API/games.php" method="post" enctype="multipart/form-data" runat="server">
+                                <form action="../../FindTeamMates/API/games.php" method="post" enctype="multipart/form-data"
+                                    runat="server">
                                     <div class="form-group ">
                                         <label class="control-label pink" for="nameGame">
                                             Nom du jeu
@@ -282,11 +283,16 @@
                                         <input class="form-control" id="nameGame" name="nameGame" type="text" />
                                     </div>
                                     <div class="form-group ">
-                                        <label class="control-label pink" for="file">
-                                            Fichier image
+                                        <label class="control-label pink">
+                                            Ajouter une image
                                         </label>
-                                        <!-- <label for="file" class="label-file">Ajouter une image</label> -->
-                                        <input class="form-control-file" id="file" name="file" type="file" accept=".jpg, .jpeg, .png">
+                                        <label class="btn btn-outline-dark btn-block" for="file">
+                                            Browse&hellip; <input class="form-control-file" id="file" name="file" type="file"
+                                                accept=".jpg, .jpeg, .png" multiple>
+                                        </label>
+                                        <label id="image-name">
+                                            ...
+                                        </label>
                                     </div>
                                     <div class="form-group">
                                         <div>
@@ -297,7 +303,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div id="box2"class="col-md-6 col-sm-6 col-xs-12">
+                            <div id="box2" class="col-md-6 col-sm-6 col-xs-12">
                                 <img id="image-view" src="img/event_no_image.png"></img>
                             </div>
                         </div>
