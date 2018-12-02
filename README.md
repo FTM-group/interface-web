@@ -1,2 +1,4 @@
 # Interface-web
-Interface web de l'appli FindTeamMates
+Interface web pour l'administration de l'application FindTeamMates.
+
+par N1c0l@s

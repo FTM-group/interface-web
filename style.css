@@ -13,7 +13,10 @@ h3 {
     margin-bottom: 5em;
     border-bottom: 1px dotted gray;
 }
-.button-div {
+.titleAppli {
+    color: hsl(298, 100%, 25%);
+}
+.button-modal {
     margin-bottom: 3em;
 }
 #listGame-tab, #proposition-tab, #addGame-tab, #ipList-tab {
@@ -54,4 +57,48 @@ h3 {
 .pink {
     color: palevioletred;
     font-weight: bold;
+}
+/* MODAL */
+h4.modal-title {
+    color: #4481bb;
+    font-weight: bold;
+}
+.modal-body {
+    background-color: whitesmoke;
+}
+#empty-btn:hover {
+    color: grey;
+}
+#file {
+    /* display: none; */
+    border: 1px solid red;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow-wrap: break-word;
+    /* text-overflow: ellipsis; */
+    padding-bottom: 5em;
+}
+.label-file {
+    cursor: pointer;
+    color: #00b1ca;
+    font-weight: bold;
+}
+.label-file:hover {
+    color: #25a5c4;
+}
+.box {
+    display: flex;
+    flex-direction: row;
+}
+#box1 {
+    border-right: 6px solid palevioletred;
+}
+#box2{
+    /* border: 1px solid white; */
+}
+#image-view {
+    width: 100%;
+    height: auto;
+    margin-left: 3px;
+    border: 1px solid #4481bb;
 }

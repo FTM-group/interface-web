@@ -19,15 +19,17 @@
 
     <div class="container">
         <div class="title">
-            <h3>Dashboard</h3>
+            <h3>Dashboard <span class="titleAppli">FindTeamMates</span></h3>
         </div>
 
-        <div class="row button-div">
+        <!-- BUTTON ADD -->
+        <div class="row button-modal">
             <div class="col">
-                <button type="button" class="btn btn-success btn-lg btn-block">Ajouter</button>
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#modalFormAdd">Ajouter</button>
             </div>
         </div>
 
+        <!-- TABS ADMIN -->
         <div class="">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -230,7 +232,7 @@
         </div>
 
         <!-- Formulaire d'ajout d'image - temporaire -->
-        <div class="formulaire-box">
+        <!-- <div class="formulaire-box">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <form action="../../FindTeamMates/API/games.php" method="post" enctype="multipart/form-data">
@@ -256,6 +258,56 @@
                     </form>
                 </div>
             </div>
+        </div> -->
+
+        <!-- MODAL -->
+        <div class="modal fade" id="modalFormAdd">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ajouter un jeu</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="box">
+                            <!-- FORM -->
+                            <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
+                                <form action="../../FindTeamMates/API/games.php" method="post" enctype="multipart/form-data" runat="server">
+                                    <div class="form-group ">
+                                        <label class="control-label pink" for="nameGame">
+                                            Nom du jeu
+                                        </label>
+                                        <input class="form-control" id="nameGame" name="nameGame" type="text" />
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label pink" for="file">
+                                            Fichier image
+                                        </label>
+                                        <!-- <label for="file" class="label-file">Ajouter une image</label> -->
+                                        <input class="form-control-file" id="file" name="file" type="file" accept=".jpg, .jpeg, .png">
+                                    </div>
+                                    <div class="form-group">
+                                        <div>
+                                            <button class="btn btn-info btn-block" name="submit" type="submit">
+                                                Valider
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="box2"class="col-md-6 col-sm-6 col-xs-12">
+                                <img id="image-view" src="img/event_no_image.png"></img>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="empty-btn" type="button" class="btn btn-outline-warning">Effacer</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -266,6 +318,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <!-- SCRIPT PERSO -->
     <script src="action.js"></script>
 </body>
 
