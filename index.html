@@ -11,6 +11,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -66,6 +69,8 @@
                                 <th scope="col">A la une</th>
                                 <th scope="col">Date ajout</th>
                                 <th scope="col">Date modif</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,6 +82,8 @@
                                 <td>........</td>
                                 <td>26/11/2018</td>
                                 <td>29/11/2018</td>
+                                <td><span data-toggle="modal" data-target="#modalFormEdit"><i id="icon-edit" class="fa fa-edit"></i></span></td>
+                                <td><i id="icon-on-off" class="fa fa-square-o"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -260,7 +267,7 @@
             </div>
         </div> -->
 
-        <!-- MODAL -->
+        <!-- MODAL ADD -->
         <div class="modal fade" id="modalFormAdd">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -274,20 +281,20 @@
                         <div class="box">
                             <!-- FORM -->
                             <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
-                                <form action="../../FindTeamMates/API/games.php" method="post" enctype="multipart/form-data"
+                                <form action="../../FindTeamMates/API/games_admin.php" method="post" enctype="multipart/form-data"
                                     runat="server">
                                     <div class="form-group ">
-                                        <label class="control-label pink" for="nameGame">
+                                        <label class="control-label pink" for="name">
                                             Nom du jeu
                                         </label>
-                                        <input class="form-control" id="nameGame" name="nameGame" type="text" />
+                                        <input class="form-control" id="name" name="name" type="text" />
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label pink">
                                             Ajouter une image
                                         </label>
-                                        <label class="btn btn-outline-dark btn-block" for="file">
-                                            Browse&hellip; <input class="form-control-file" id="file" name="file" type="file"
+                                        <label class="btn btn-outline-dark btn-block" for="thumbnail">
+                                            Browse&hellip; <input class="form-control-file" id="thumbnail" name="thumbnail" type="file"
                                                 accept=".jpg, .jpeg, .png" multiple>
                                         </label>
                                         <label id="image-name">
@@ -310,6 +317,82 @@
                     </div>
                     <div class="modal-footer">
                         <button id="empty-btn" type="button" class="btn btn-outline-warning">Effacer</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL EDIT -->
+        <div class="modal fade" id="modalFormEdit">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modifier un jeu</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="box">
+                            <!-- FORM -->
+                            <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
+                                <form action="../../FindTeamMates/API/games_admin.php" method="post" enctype="multipart/form-data" runat="server">
+                                    <div class="form-group ">
+                                        <label class="control-label pink" for="name">
+                                            Nom du jeu
+                                        </label>
+                                        <input class="form-control" id="name" name="name" type="text" />
+                                        <input class="form-control" id="id" name="id" type="text" hidden/>
+                                        <input class="form-control" id="idThumbnail" name="idThumbnail" type="text" hidden/>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label pink">
+                                            Genre
+                                        </label>
+                                        <select class="form-control" id="genre" name="genre">
+                                            <option value="">FPS</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label pink">
+                                            Nbr de joueurs
+                                        </label>
+                                        <input class="form-control" type="text" id="numberPlayers" name="numberPlayers">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label pink">
+                                            Headline
+                                        </label>
+                                        <input class="form-control" type="text" id="headline" name="headline">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label pink" style="margin-right: 10px;">
+                                            On/Off
+                                        </label>
+                                        <i id="button-on-off" class="fa fa-square btn-red" style="font-size:36px;" name="onOff"></i>
+                                    </div>
+                                    <div class="form-group">
+                                        <div>
+                                            <button class="btn btn-info btn-block" name="submit" type="submit">
+                                                Valider
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="box2" class="col-md-6 col-sm-6 col-xs-12">
+                                <img id="image-view" src="img/event_no_image.png"></img>
+
+                                <hr>
+                                <label class="control-label">
+                                       idThumbnail
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="" type="button" class="btn btn-outline-success">Valider</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                     </div>
                 </div>

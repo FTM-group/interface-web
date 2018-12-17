@@ -69,7 +69,7 @@ h4.modal-title {
 #empty-btn:hover {
     color: grey;
 }
-#file {
+#thumbnail {
     display: none;
     border: 1px solid red;
     overflow: hidden;
@@ -93,4 +93,10 @@ h4.modal-title {
     height: auto;
     margin-left: 3px;
     border: 1px solid #4481bb;
+}
+.btn-red {
+    color: #e60000;
+}
+.btn-green {
+    color: #009933;
 }

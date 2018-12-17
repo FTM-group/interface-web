@@ -2,6 +2,8 @@ $(function () {
 
     console.log("ready!");
 
+    //----------------------- DASHBOARD
+
     // Activation des différents onglets du panneau
     function tabAction() {
         $('#listGame-tab a').on('click', function (e) {
@@ -26,18 +28,48 @@ $(function () {
         });
     }
 
+    // Icon On/Off
+    $('#icon-on-off').click( function() {
+        console.log('clic');
+        classIconOnOff = $('#icon-on-off').attr('class');
+        if(classIconOnOff === 'fa fa-square-o') {
+            $('#icon-on-off').attr('class', 'fa fa-square');
+            $('#icon-on-off').css('color', 'green');
+        }
+        else {
+            $('#icon-on-off').attr('class', 'fa fa-square-o');
+            $('#icon-on-off').css('color', 'red');
+        }
+        
+    });
+
+    // Button On/Off
+    $('#button-on-off').click( function() {
+        classbuttonOnOff = $('#button-on-off').attr('class').substr(13);
+        console.log(classbuttonOnOff);
+        if(classbuttonOnOff === 'btn-red') {
+            $('#button-on-off').removeClass("btn-red").addClass("btn-green");
+        }
+        else {
+            $('#button-on-off').removeClass("btn-green").addClass("btn-red");
+        }
+        
+    });
+
+    //----------------------- MODAL
+
     // Met le focus sur le premier input à l'ouverture de la modal
     $('.modal').on('shown.bs.modal', function () {
-        $('#nameGame').focus()
+        $('#name').focus()
     });
 
     // Affiche l'image avant l'upload
     $('.modal').on('shown.bs.modal', function () {
-        $('#file').change(function () {
+        $('#thumbnail').change(function () {
             console.log("DEBUG");
             var fileList = $("input[type=file]").prop("files");
             console.log(fileList);
-            console.log('1Nom de l\'image:' + fileList[0].name);
+            console.log('Nom de l\'image:' + fileList[0].name);
         });
 
         function readURL(input) {
@@ -52,7 +84,7 @@ $(function () {
             }
         }
 
-        $('#file').change(function () {
+        $('#thumbnail').change(function () {
             var fileList = $("input[type=file]").prop("files");
             readURL(this);
             $('#image-name').text(fileList[0].name);
@@ -60,7 +92,15 @@ $(function () {
         
     });
 
-    // Affiche l'image avant l'upload
+    // Efface le contenu du formulaire
+    $('#empty-btn').on('click', function (e) {
+        $("#name").val('');
+        $("#thumbnail").val('');
+        $('#image-view').attr('src', 'img/event_no_image.png');
+    });
+
+
+     // Affiche l'image avant l'upload
     // $(window).on('load', function (e) {
     //     function readURL(input) {
     //         if (input.files && input.files[0]) {
@@ -78,16 +118,6 @@ $(function () {
     //         readURL(this);
     //     });
     // });
-
-    // Efface le contenu du formulaire
-    $('#empty-btn').on('click', function (e) {
-        $("#nameGame").val('');
-        $("#file").val('');
-        $('#image-view').attr('src', 'img/event_no_image.png');
-    });
-
-
-    
 
     // GO
     // tabAction();
