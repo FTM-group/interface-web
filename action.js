@@ -133,6 +133,7 @@ $(function () {
         $("#name").val('');
         $("#thumbnail").val('');
         $('#image-view').attr('src', 'img/event_no_image.png');
+        $('#image-name').text('');
     });
 
     //----------------------- MODAL EDIT
