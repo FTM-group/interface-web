@@ -37,7 +37,7 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="listGame-tab" data-toggle="tab" href="#listGame" role="tab"
-                        aria-controls="listGame" aria-selected="true">listGame
+                        aria-controls="listGame" aria-selected="true">Liste des jeux
                     </a>
                 </li>
                 <li class="nav-item">
@@ -45,10 +45,10 @@
                         aria-controls="proposition" aria-selected="false">proposition
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" id="addGame-tab" data-toggle="tab" href="#addGame" role="tab" aria-controls="addGame"
-                        aria-selected="false">addGame</a>
-                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" id="type-tab" data-toggle="tab" href="#type" role="tab" aria-controls="type"
+                        aria-selected="false">Type</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" id="ipList-tab" data-toggle="tab" href="#ipList" role="tab" aria-controls="ipList"
                         aria-selected="false">ipList
@@ -142,6 +142,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Nom du jeu</th>
                                 <th scope="col">Date ajout</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -149,21 +150,25 @@
                                 <th scope="row">1</th>
                                 <td>League of Legend</td>
                                 <td>26/11/2018</td>
+                                <td class="text-center"><i id="switch-proposition-tab" class="fa fa-square btn-red"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
                                 <td>League of Legend</td>
                                 <td>26/11/2018</td>
+                                <td class="text-center"><i id="switch-proposition-tab" class="fa fa-square btn-red"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
                                 <td>League of Legend</td>
                                 <td>26/11/2018</td>
+                                <td class="text-center"><i id="switch-proposition-tab" class="fa fa-square btn-red"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
                                 <td>League of Legend</td>
                                 <td>26/11/2018</td>
+                                <td class="text-center"><i id="switch-proposition-tab" class="fa fa-square btn-red"></i></td>
                             </tr>
                             <tr>
                                 <th scope="row">5</th>
@@ -179,10 +184,42 @@
                     </table>
                 </div>
 
-                <!-- Jeux  -->
-                <!-- <div class="tab-pane fade" id="addGame" role="tabpanel" aria-labelledby="addGame-tab">
-                    addGame
-                </div> -->
+                <!-- Type  -->
+                <div class="tab-pane fade" id="type" role="tabpanel" aria-labelledby="type-tab">
+                        <table class="table table-sm table-type">
+                                <thead class="green">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Date ajout</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>FPS</td>
+                                        <td>26/11/2018</td>
+                                        <td class="text-center"><i class="fa fa-trash-o btn-trash"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Action</td>
+                                        <td>26/11/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Wargame</td>
+                                        <td>26/11/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Beat them all</td>
+                                        <td>26/11/2018</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
 
                 <!-- Liste de IPs -->
                 <div class="tab-pane fade" id="ipList" role="tabpanel" aria-labelledby="ipList-tab">
@@ -283,24 +320,69 @@
                             <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
                                 <form action="../../FindTeamMates/API/games_admin.php" method="post" enctype="multipart/form-data"
                                     runat="server">
+                                    <!-- Nom de l'image -->
                                     <div class="form-group ">
                                         <label class="control-label pink" for="name">
                                             Nom du jeu
                                         </label>
-                                        <input class="form-control" id="name" name="name" type="text" />
+                                        <input class="form-control" id="name-modal-add" name="name" type="text" />
                                     </div>
+                                    <!-- Images -->
                                     <div class="form-group ">
                                         <label class="control-label pink">
                                             Ajouter une image
                                         </label>
-                                        <label class="btn btn-outline-dark btn-block" for="thumbnail">
-                                            Browse&hellip; <input class="form-control-file" id="thumbnail" name="thumbnail" type="file"
+                                        <label class="btn btn-outline-dark btn-block" for="thumbnail-modal-add">
+                                            Browse&hellip; <input class="form-control-file" id="thumbnail-modal-add" name="thumbnail" type="file"
                                                 accept=".jpg, .jpeg, .png" multiple>
                                         </label>
-                                        <label id="image-name">
+                                        <label id="image-name-modal-add">
                                             ...
                                         </label>
                                     </div>
+                                    <!-- Genre -->
+                                    <div class="form-group ">
+                                        <label class="control-label pink">
+                                            Genre
+                                        </label>
+                                        <select class="form-control" id="genre-modal-add" name="genre">
+                                            <option value=""></option>
+                                            <option value="">FPS</option>
+                                        </select>
+                                    </div>
+                                    <!-- Nbre de joueurs -->
+                                    <div class="form-group ">
+                                        <label class="control-label pink">
+                                            Nbr de joueurs
+                                        </label>
+                                        <select class="form-control" id="numberPlayers-modal-add" name="numberPlayers">
+                                            <option value=""></option>
+                                            <option value="">2</option>
+                                            <option value="">4</option>
+                                            <option value="">10</option>
+                                            <option value="">50</option>
+                                        </select>
+                                        <!-- <input class="form-control" type="text" id="numberPlayers" name="numberPlayers"> -->
+                                    </div>
+                                    <!-- Headline -->
+                                    <div class="form-group ">
+                                        <!-- <label class="control-label pink">
+                                            Headline
+                                        </label> -->
+                                        <!-- <input class="form-control" type="text" id="headline" name="headline"> -->
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="headline-modal-add" name="headline">
+                                            <label class="custom-control-label pink" for="headline-modal-add">Headline</label>
+                                          </div>
+                                    </div>
+                                    <!-- On/Off -->
+                                    <div class="form-group ">
+                                        <label class="control-label pink" style="margin-right: 10px;">
+                                            On/Off
+                                        </label>
+                                        <i id="button-on-off-modal-add" class="fa fa-square btn-red" style="font-size:36px;" name="onOff"></i>
+                                    </div>
+                                    <!-- Valider -->
                                     <div class="form-group">
                                         <div>
                                             <button class="btn btn-info btn-block" name="submit" type="submit">
@@ -311,7 +393,7 @@
                                 </form>
                             </div>
                             <div id="box2" class="col-md-6 col-sm-6 col-xs-12">
-                                <img id="image-view" src="img/event_no_image.png"></img>
+                                <img id="image-view-modal-add" src="img/event_no_image.png"></img>
                             </div>
                         </div>
                     </div>
@@ -351,6 +433,7 @@
                                             Genre
                                         </label>
                                         <select class="form-control" id="genre" name="genre">
+                                            <option value=""></option>
                                             <option value="">FPS</option>
                                         </select>
                                     </div>
@@ -358,13 +441,24 @@
                                         <label class="control-label pink">
                                             Nbr de joueurs
                                         </label>
-                                        <input class="form-control" type="text" id="numberPlayers" name="numberPlayers">
+                                        <select class="form-control" id="numberPlayers" name="numberPlayers">
+                                            <option value=""></option>
+                                            <option value="">2</option>
+                                            <option value="">4</option>
+                                            <option value="">10</option>
+                                            <option value="">50</option>
+                                        </select>
+                                        <!-- <input class="form-control" type="text" id="numberPlayers" name="numberPlayers"> -->
                                     </div>
                                     <div class="form-group ">
-                                        <label class="control-label pink">
+                                        <!-- <label class="control-label pink">
                                             Headline
-                                        </label>
-                                        <input class="form-control" type="text" id="headline" name="headline">
+                                        </label> -->
+                                        <!-- <input class="form-control" type="text" id="headline" name="headline"> -->
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="headline" name="headline">
+                                            <label class="custom-control-label pink" for="headline">Headline</label>
+                                          </div>
                                     </div>
                                     <div class="form-group ">
                                         <label class="control-label pink" style="margin-right: 10px;">
@@ -411,8 +505,13 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <!-- SCRIPT PERSO -->
+    <!-- SCRIPTS PERSO -->
     <script src="action.js"></script>
+    <script src="action_tab_listGame.js"></script>
+    <script src="action_tab_proposition.js"></script>  
+    <script src="action_add_modal.js"></script>
+    <script src="action_edit_modal.js"></script>
+    
 </body>
 
 </html>

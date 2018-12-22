@@ -19,20 +19,17 @@ h3 {
 .button-modal {
     margin-bottom: 3em;
 }
-#listGame-tab, #proposition-tab, #addGame-tab, #ipList-tab {
+#listGame-tab, #proposition-tab, #addGame-tab, #ipList-tab, #type-tab {
     font-weight: bold;
-}
-#ipList-tab {
-    /* color: hsl(27, 95%, 60%); */
-    color: #4481bb;
-}
-#listGame-tab, #proposition-tab, #addGame-tab {
-    /* color: rgb(228, 159, 255); */
     color: #4481bb;
 }
 #myTabContent {
     background-color: white;
     padding: 1em;
+}
+.green {
+    color: white;
+    background-color: rgb(6, 146, 6);
 }
 .orange {
     color: white;
@@ -46,6 +43,10 @@ h3 {
     color: white;
     background-color: rgb(96, 144, 248);
 }
+.pink {
+    color: palevioletred;
+    font-weight: bold;
+}
 .formulaire-box {
     background-color: whitesmoke;
     border: 1px solid green;
@@ -53,10 +54,6 @@ h3 {
     margin-top: 3em;
     margin-bottom: 3em;
     padding: 3em;
-}
-.pink {
-    color: palevioletred;
-    font-weight: bold;
 }
 /* MODAL */
 h4.modal-title {
@@ -69,7 +66,7 @@ h4.modal-title {
 #empty-btn:hover {
     color: grey;
 }
-#thumbnail {
+#thumbnail,  #thumbnail-modal-add{
     display: none;
     border: 1px solid red;
     overflow: hidden;
@@ -88,7 +85,7 @@ h4.modal-title {
 #box2{
     /* border: 1px solid white; */
 }
-#image-view {
+#image-view, #image-view-modal-add {
     width: 100%;
     height: auto;
     margin-left: 3px;
@@ -99,4 +96,7 @@ h4.modal-title {
 }
 .btn-green {
     color: #009933;
+}
+.fa {
+    font-size:24px;
 }
