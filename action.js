@@ -29,24 +29,46 @@ $(function () {
     }
 
     // TABLEAU TYPE
-    $('.btn-trash').click(function() {
+    $('.btn-trash-type').click(function() {
         // on récupère les classe
-        let classBtnTrash = $('.btn-trash').attr('class');
+        let classBtnTrash = $('.btn-trash-type').attr('class');
+        
         // On obtient un tableau avec les différentes classes
         let items = classBtnTrash.split(' ');
 
         // On parcours le tableau et on conditionne sur la classe que l'on souhaite
         items.forEach(function(item){
             if(item === 'fa-trash-o') {
-                $('.btn-trash').removeClass("fa-trash-o").addClass("fa-trash");
-                $('.table-type td:eq(1), .table-type td:eq(2)').prev().css('text-decoration', 'line-through');
+                $('.btn-trash-type').removeClass("fa-trash-o").addClass("fa-trash");
+                $('.table-type td:eq(1), .table-type td:eq(2)').prev().css({'text-decoration': 'line-through', 'color': 'gray'});
             }
             else {
-                $('.btn-trash').removeClass("fa-trash").addClass("fa-trash-o");
-                $('.table-type td:eq(1), .table-type td:eq(2)').prev().css('text-decoration', '');
+                $('.btn-trash-type').removeClass("fa-trash").addClass("fa-trash-o");
+                $('.table-type td:eq(1), .table-type td:eq(2)').prev().css({'text-decoration': '', 'color': 'black'});
             }
           });
+    });
 
+    // TABLEAU IPLIST
+    $('.btn-trash-ipList').click(function() {
+        // on récupère les classe
+        let classBtnTrash = $('.btn-trash-ipList').attr('class');
+        
+        // On obtient un tableau avec les différentes classes
+        let items = classBtnTrash.split(' ');
+        // console.log(items);
+
+        // On parcours le tableau et on conditionne sur la classe que l'on souhaite
+        items.forEach(function(item){
+            if(item === 'fa-trash-o') {
+                $('.btn-trash-ipList').removeClass("fa-trash-o").addClass("fa-trash");
+                $('.table-ipList td:eq(1), .table-ipList td:eq(2), .table-ipList td:eq(3)').prev().css({'text-decoration': 'line-through', 'color': 'gray'});
+            }
+            else {
+                $('.btn-trash-ipList').removeClass("fa-trash").addClass("fa-trash-o");
+                $('.table-ipList td:eq(1), .table-ipList td:eq(2), .table-ipList td:eq(3)').prev().css({'text-decoration': '', 'color': 'black'});
+            }
+          });
     });
 
 
