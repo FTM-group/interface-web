@@ -8,6 +8,6 @@ $twig = new Twig_Environment($loader, array(
     // 'cache' => false,
 ));
 
-echo $twig->render('index.html', array('name' => 'Sooo cool !!:'));
+echo $twig->render('index.twig.html', array('name' => 'Sooo cool !!:'));
 
 
