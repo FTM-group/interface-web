@@ -11,7 +11,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css" />
+    
 
     <link href="assets/css/tagsinput.css" rel="stylesheet" type="text/css">
 
@@ -324,8 +326,7 @@
                         <div class="box">
                             <!-- FORM -->
                             <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
-                                <form action="../../FindTeamMates/API/games_admin.php" method="post" enctype="multipart/form-data"
-                                    runat="server">
+                                <form id="form" action="" method="post" enctype="multipart/form-data" runat="server"> <!-- ../../FindTeamMates/API/games_admin.php -->
                                     <!-- Nom de l'image -->
                                     <div class="form-group ">
                                         <label class="control-label pink" for="name">
@@ -347,16 +348,20 @@
                                         </label>
                                     </div>
                                     <!-- Genre -->
-                                    <div class="form-group ">
+                                    <div class="form-group">
                                         <label class="control-label pink">
                                             Genre
                                         </label>
-                                        <select class="selectpicker form-control" id="genre-modal-add" name="genre" multiple title="Choose one of the following..." data-style="btn-primary">
-                                            <option value="">RPG</option>
-                                            <option value="">FPS</option>
-                                            <option value="">MMOFPS</option>
-                                            <option value="">MMORPG</option>
-                                            <option value="">TPS</option>
+                                        <select class="form-control selectpicker" id="genre-modal-add" name="genre" title="Choose one of the following..." 
+                                        multiple 
+                                        data-style="btn-warning" 
+                                        data-selected-text-format="count"> <!-- data-style="btn-primary" -->
+                                            <!-- <option value="default" selected="selected">Choose one of the following...</option> -->
+                                            <!-- <option value="RPG">RPG</option>
+                                            <option value="FPS">FPS</option>
+                                            <option value="MMOFPS">MMOFPS</option>
+                                            <option value="MMORPG">MMORPG</option>
+                                            <option value="TPS">TPS</option> -->
                                         </select>
                                     </div>
                                     <!-- Nbre de joueurs -->
@@ -364,7 +369,7 @@
                                         <label class="control-label pink">
                                             Nbr de joueurs
                                         </label>
-                                        <input class="form-control" type="text" value="2" data-role="tagsinput" id="numberPlayers-modal-add" name="numberPlayers">
+                                        <input class="form-control" type="text" value="2" data-role="tagsinput" id="numberPlayers-modal-add" name="nbMaxPlayers">
                                     </div>
                                     <!-- Headline -->
                                     <div class="form-group ">
@@ -382,12 +387,13 @@
                                         <label class="control-label pink" style="margin-right: 10px;">
                                             On/Off
                                         </label>
-                                        <i id="button-on-off-modal-add" class="fa fa-square btn-red" style="font-size:36px;" name="onOff"></i>
+                                        <i id="button-on-off-modal-add" class="fa fa-square btn-red" style="font-size:36px;"></i>
+                                        <input id="btn-onoff-hidden" type="text" name="onOff" hidden>
                                     </div>
                                     <!-- Valider -->
                                     <div class="form-group">
                                         <div>
-                                            <button class="btn btn-info btn-block" name="submit" type="submit">
+                                            <button id="btn-validate" class="btn btn-info btn-block" name="submit" type="submit">
                                                 Valider
                                             </button>
                                         </div>
@@ -434,7 +440,8 @@
                                         <label class="control-label pink">
                                             Genre
                                         </label>
-                                        <select class="selectpicker" id="#genre-modal-edit" name="genre" multiple title="Choose one of the following..." data-style="btn-primary">
+                                        <select class="selectpicker" id="#genre-modal-edit" name="genre" 
+                                        multiple title="Choose one of the following..."> <!-- data-style="btn-primary" -->
                                             <option value="">FPS</option>
                                             <option value="">RPG</option>
                                             <option value="">MMOFPS</option>
@@ -512,7 +519,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ajax-bootstrap-select/1.4.4/js/ajax-bootstrap-select.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ajax-bootstrap-select/1.4.4/js/ajax-bootstrap-select.min.js"></script> -->
     <script src="assets/js/tagsinput.js"></script>
 
     <!-- SCRIPTS PERSO -->
