@@ -19,7 +19,7 @@ h3 {
 .button-modal {
     margin-bottom: 3em;
 }
-#listGame-tab, #proposition-tab, #addGame-tab, #ipList-tab, #type-tab {
+#listGame-tab, #proposition-tab, #addGame-tab, #ipList-tab, #genre-tab {
     font-weight: bold;
     color: #4481bb;
 }

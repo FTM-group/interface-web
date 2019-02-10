@@ -102,26 +102,24 @@ $(function () {
                 //     $('<option>',  {value: key, html: value + '</option>' }).appendTo('#genre-modal-add');
                 // });
                 $.each(json.data, function(key, value) {
-                    // console.log(value.id_genre); 
-                    // console.log(value.name_genre);
                     // $(".selectpicker").selectpicker();
                     // $("#genre-modal-add").append('<option value="'+value.id_genre+'">'+value.name_genre+'</option>');
-                    $('<option>', {value: value.id_genre, html: value.name_genre + '</option>' }).appendTo('#genre-modal-add');
-                    $('.selectpicker').selectpicker('refresh');
+                    // $('<option>', {value: value.id_genre, html: value.name_genre + '</option>' }).appendTo('#genre-modal-add');
+                    $('<option value="' + value.id_genre + '">' + value.name_genre + '</option>').appendTo('#genre-modal-add');
+                    // $('.selectpicker').selectpicker('refresh');
                 });
-                
-                // $('#genre-modal-add').selectpicker('refresh');
+                $('#genre-modal-add').selectpicker('refresh');
             },
             
             error: function(e) {
                 // $("#err").html(e).fadeIn();
                 console.log("Failed");
-                console.log(e);
             }   
         });
     });
 
     // Penser à faire un controle sur nbr de joueurs afin que l'on ne puisse saisir que des chiffres
+    
 
     // Envoie des datas à l'API en Ajax
     $("#form").submit(function(e) {
