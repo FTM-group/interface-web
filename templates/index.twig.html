@@ -285,7 +285,7 @@
                             <!-- FORM -->
                             <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
                                 <form id="form" action="" method="post" enctype="multipart/form-data" runat="server"> <!-- ../../FindTeamMates/API/games_admin.php -->
-                                    <!-- Nom de l'image -->
+                                    <!-- Nom du jeu -->
                                     <div class="form-group ">
                                         <label class="control-label pink" for="name">
                                             Nom du jeu
@@ -385,29 +385,44 @@
                     <div class="modal-body">
                         <div class="box">
                             <!-- FORM -->
-                            <div id="box1" class="col-md-6 col-sm-6 col-xs-12">
-                                <form action="../../FindTeamMates/API/games_admin.php" method="post" enctype="multipart/form-data" runat="server">
+                            <div id="editbox1" class="col-md-6 col-sm-6 col-xs-12">
+                                <form id="form-edit" action="" method="post" enctype="multipart/form-data" runat="server">
+                                    <!-- Nom du jeu -->
                                     <div class="form-group ">
                                         <label class="control-label pink" for="name">
                                             Nom du jeu
                                         </label>
-                                        <input class="form-control" id="name" name="name" type="text" />
-                                        <input class="form-control" id="id" name="id" type="text" hidden/>
-                                        <input class="form-control" id="idThumbnail" name="idThumbnail" type="text" hidden/>
+                                        <input class="form-control" id="name-modal-edit" name="name" type="text" />
+                                        <input class="form-control" id="id-game-modal-edit" name="id-game-modal-edit" type="text" hidden />
+                                        <input class="form-control" id="id-thumbnail-modal-edit" name="id-thumbnail-modal-edit" type="text" hidden />
                                     </div>
+                                    <!-- Images -->
+                                    <div class="form-group ">
+                                        <label class="control-label pink">
+                                            Modifier l'image
+                                        </label>
+                                        <label class="btn btn-outline-dark btn-block" for="thumbnail-modal-edit">
+                                            Browse&hellip; <input class="form-control-file" id="thumbnail-modal-edit" name="thumbnail" type="file"
+                                                accept=".jpg, .jpeg, .png" multiple>
+                                        </label>
+                                        <label id="image-name-modal-edit">
+                                            ...
+                                        </label>
+                                    </div>
+                                    <!-- Genre -->
                                     <div class="form-group ">
                                         <label class="control-label pink">
                                             Genre
                                         </label>
-                                        <select class="selectpicker" id="genre-modal-edit" name="genre" 
-                                        multiple title="Choose one of the following..."> <!-- data-style="btn-primary" -->
-                                            <option value="">FPS</option>
+                                        <select class="form-control selectpicker" id="genre-modal-edit" name="genre" multiple title="Choose one of the following..."> <!-- data-style="btn-primary" -->
+                                            <!-- <option value="">FPS</option>
                                             <option value="">RPG</option>
                                             <option value="">MMOFPS</option>
                                             <option value="">MMORPG</option>
-                                            <option value="">TPS</option>
+                                            <option value="">TPS</option> -->
                                         </select>
                                     </div>
+                                    <!-- Nbr de joueurs -->
                                     <div class="form-group ">
                                         <label class="control-label pink">
                                             Nbr de joueurs
@@ -422,22 +437,25 @@
                                         </select> -->
                                         <!-- <input class="form-control" type="text" id="numberPlayers" name="numberPlayers"> -->
                                     </div>
+                                    <!-- Headline -->
                                     <div class="form-group ">
                                         <!-- <label class="control-label pink">
                                             Headline
                                         </label> -->
                                         <!-- <input class="form-control" type="text" id="headline" name="headline"> -->
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="headline" name="headline">
-                                            <label class="custom-control-label pink" for="headline">Headline</label>
+                                            <input type="checkbox" class="custom-control-input" id="headline-modal-edit" name="headline">
+                                            <label class="custom-control-label pink" for="headline-modal-edit">Headline</label>
                                           </div>
                                     </div>
+                                    <!-- on/off -->
                                     <div class="form-group ">
                                         <label class="control-label pink" style="margin-right: 10px;">
                                             On/Off
                                         </label>
-                                        <i id="button-on-off" class="fa fa-square btn-red" style="font-size:36px;" name="onOff"></i>
+                                        <i id="button-on-off-modal-edit" class="fa fa-square btn-red" style="font-size:36px;" name="onOff"></i>
                                     </div>
+                                    <!-- btn valider -->
                                     <div class="form-group">
                                         <div>
                                             <button id="btn-validate-edit" class="btn btn-info btn-block" name="submit" type="submit">
@@ -447,13 +465,13 @@
                                     </div>
                                 </form>
                             </div>
-                            <div id="box2" class="col-md-6 col-sm-6 col-xs-12">
-                                <img id="image-view" src="img/event_no_image.png"></img>
-
+                            <div id="editbox2" class="col-md-6 col-sm-6 col-xs-12">
+                                <img id="image-view-modal-edit" src="img/event_no_image.png"></img>
+                                <!-- 
                                 <hr>
                                 <label class="control-label">
                                        idThumbnail
-                                </label>
+                                </label> -->
                             </div>
                         </div>
                     </div>

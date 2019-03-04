@@ -66,7 +66,7 @@ h4.modal-title {
 #empty-btn:hover {
     color: grey;
 }
-#thumbnail,  #thumbnail-modal-add{
+#thumbnail-modal-edit,  #thumbnail-modal-add{
     display: none;
     border: 1px solid red;
     overflow: hidden;
@@ -79,13 +79,13 @@ h4.modal-title {
     display: flex;
     flex-direction: row;
 }
-#box1 {
+#box1, #editbox1 {
     border-right: 6px solid palevioletred;
 }
-#box2{
+#box2, #editbox2 {
     /* border: 1px solid white; */
 }
-#image-view, #image-view-modal-add {
+#image-view-modal-edit, #image-view-modal-add {
     width: 100%;
     height: auto;
     margin-left: 3px;

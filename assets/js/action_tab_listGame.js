@@ -35,10 +35,10 @@ $(function () {
                     // $('<td><i class="fa fa-square switch btn-red"></i></td>').appendTo('#tab-listGame').appendTo('#tab-listGame');
                     // $('</tr>').appendTo('#tab-listGame').appendTo('#tab-listGame');
                     let headlineGame = 'non';
-
                     if(datas[i].headline_game === "1") {
                         headlineGame = 'oui';
                     }
+
                     let classBtn = 'btn-red';
                     if(datas[i].on_off_game === "1") {
                         classBtn = 'btn-green';
@@ -52,11 +52,69 @@ $(function () {
                     '<td style="text-align: center;">' + datas[i].nb_players[0].nb_players + '</td>' +
                     '<td style="text-align: center;">' + headlineGame + '</td>' +
                     '<td style="text-align: center;">' + datas[i].date_add_game + '</td>' +
-                    '<td><span data-toggle="modal" data-target="#modalFormEdit"><i id="icon-edit" class="fa fa-edit" style="color: #3399ff;"></i></span></td>' +
+                    '<td><span data-toggle="modal" data-target="#modalFormEdit"><i id="icon-edit" class="fa fa-edit editIcon" style="color: #3399ff;"></i></span></td>' +
                     '<td><i class="fa fa-square switch ' + classBtn + '"></i></td>').appendTo('#tab-listGame');
 
-                    i++;
+                    i++;   
                 });
+
+                $('.editIcon').click(function() {
+                    var id_game = $(this).parent().parent().parent().attr('id');
+                    console.log(id_game);
+
+                    // $.get('../../FindTeamMates/API/Administration/games.php',{
+                    //     update: 'update', 
+                    //     id: id_game,
+                    //     dataType: 'json'
+                    // }).done(function( data ) {
+                    //     console.log(data);
+                    // });
+                    $.ajax({
+                        url:  '../../FindTeamMates/API/Administration/games.php',
+                        type: 'GET',
+                        data: {update: 'update', id: id_game},
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            let datas = data.games[0];
+
+                            // Nom du jeu
+                            $('#name-modal-edit').val(datas.name_game);
+
+                            // Image du jeu
+                            $('#image-view-modal-edit').attr('src', '../../FindTeamMates/API/Administration/Thumbnails/' + datas.name_thumbnail);
+                            
+                            // Nombre de joueurs
+                            $('#numberPlayers-modal-edit').val(datas.nb_players[0].nb_players);
+                            console.log('nbr players: ' + datas.nb_players[0].nb_players);
+
+                            // Headline
+                            let headlineValue = datas.headline_game;
+                            if(headlineValue == 0)
+                                $('#headline-modal-edit').prop('checked', false);
+                            if(headlineValue == 1)
+                                $('#headline-modal-edit').prop('checked', true);
+
+                            // Bouton on/off
+                            // let classbuttonOnOff = $('#button-on-off-modal-edit').attr('class').substr(13);
+                            let btnOnOffValue = datas.on_off_game;
+                            if(btnOnOffValue == 0)
+                                $('#button-on-off-modal-edit').removeClass("btn-green").addClass("btn-red");
+                            if(btnOnOffValue == 1)
+                                $('#button-on-off-modal-edit').removeClass("btn-red").addClass("btn-green");
+
+                            // 
+                            
+                        },
+                        error: function() {}
+                    });
+                   
+                });
+
+                // NE MARCHE PAS
+                // $(".modal").on('hidden.bs.modal', function () {
+                //     $(this).data('bs.modal', null);
+                // });
 
                 // Icon On/Off - tableau -> PAS DE RECUPERATION DES DONNEES cf. Model/game.php
                 $('.switch').click(function() {
