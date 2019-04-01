@@ -110,11 +110,10 @@ $(function () {
             contentType: false,
             processData: false,
 
-            beforeSend : function() {
-            },
+            beforeSend : function() {},
 
             success: function(data) {
-                console.log("SUCCESS ");
+                console.log("SUCCESS");
                 if(data == 'invalid') {
                     // invalid file format.
                     // $("#err").html("Invalid File !").fadeIn();    

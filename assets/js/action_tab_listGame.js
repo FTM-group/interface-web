@@ -54,13 +54,12 @@ $(function () {
                     '<td style="text-align: center;">' + datas[i].date_add_game + '</td>' +
                     '<td><span data-toggle="modal" data-target="#modalFormEdit"><i id="icon-edit" class="fa fa-edit editIcon" style="color: #3399ff;"></i></span></td>' +
                     '<td><i class="fa fa-square switch ' + classBtn + '"></i></td>').appendTo('#tab-listGame');
-
                     i++;   
                 });
 
                 $('.editIcon').click(function() {
                     var id_game = $(this).parent().parent().parent().attr('id');
-                    console.log(id_game);
+                    console.log('id_game:'); console.log(id_game);
 
                     // $.get('../../FindTeamMates/API/Administration/games.php',{
                     //     update: 'update', 
@@ -75,7 +74,7 @@ $(function () {
                         data: {update: 'update', id: id_game},
                         dataType: 'json',
                         success: function (data) {
-                            console.log(data);
+                            console.log('editIcon data'); console.log(data);
                             let datas = data.games[0];
 
                             // Nom du jeu
@@ -103,8 +102,49 @@ $(function () {
                             if(btnOnOffValue == 1)
                                 $('#button-on-off-modal-edit').removeClass("btn-red").addClass("btn-green");
 
-                            // 
-                            
+                            // Genre
+                            let genre_id = datas.genres[0].id_genre;
+                            let genre_name = datas.genres[0].name_genre;
+                            console.log('genre datas:'); console.log(genre_id); console.log(genre_name);
+
+                            // Alimentation du SELECT Genre
+                            $('#modalFormEdit').ready(function() {
+                                console.log('READY MODAL EDIT');
+                                $.ajax(
+                                {
+                                    url: "../../FindTeamMates/API/Administration/genres.php",
+                                    type: "GET",
+                                    data:  'all',
+                                    dataType: 'json',
+                                    // cache: false,
+                                    // processData: false,
+                                    
+                                    success: function(data) {
+                                        console.log("SUCCESS select genre");
+                                        console.log(data);
+                                            
+                                        let json = JSON.parse(data);
+                                        console.log(json); 
+                                        // json = json.replace(/["]+/g, '\'');
+                                        console.log(json.status); 
+
+                                        $.each(json.data, function(key, value) {
+                                            if(value.id_genre == genre_id) {
+                                                console.log(genre_name); 
+                                                $('<option selected value="' + value.id_genre + '">' + value.name_genre + '</option>').appendTo('#genre-modal-edit');
+                                            }
+                                            else {
+                                                $('<option value="' + value.id_genre + '">' + value.name_genre + '</option>').appendTo('#genre-modal-edit');
+                                            }
+                                        });
+                                        $('#genre-modal-edit').selectpicker('refresh');
+                                    },
+                                    
+                                    error: function(e) {
+                                        console.log("Failed");
+                                    }   
+                                });
+                            });
                         },
                         error: function() {}
                     });
